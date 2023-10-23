@@ -1,0 +1,46 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "nuxt": "^3.8.0",
+    "vue": "^3.3.6",
+    "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@codemirror/lang-json": "^6.0.1",
+    "@codemirror/theme-one-dark": "^6.1.2",
+    "@fortawesome/fontawesome-pro": "^6.4.2",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/pro-light-svg-icons": "^6.4.2",
+    "@fortawesome/pro-regular-svg-icons": "^6.4.2",
+    "@fortawesome/pro-solid-svg-icons": "^6.4.2",
+    "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@headlessui/vue": "^1.7.16",
+    "@pinia/nuxt": "^0.5.1",
+    "@tailwindcss/forms": "^0.5.6",
+    "@vueup/vue-quill": "^1.2.0",
+    "codemirror": "^6.0.1",
+    "echarts": "^5.4.3",
+    "flowbite": "^1.8.1",
+    "flowbite-vue": "^0.0.17",
+    "gridstack": "^9.4.0",
+    "keycloak-js": "^22.0.4",
+    "pinia": "^2.1.7",
+    "quill-mention": "^4.0.0",
+    "sass": "^1.69.4",
+    "typesense-instantsearch-adapter": "^2.7.1",
+    "vue-codemirror6": "^1.1.27",
+    "vue-echarts": "^6.6.1",
+    "vue-instantsearch": "^4.11.0"
+  }
+}
