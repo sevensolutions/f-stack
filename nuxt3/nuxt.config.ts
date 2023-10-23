@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
@@ -10,6 +12,17 @@ export default defineNuxtConfig({
     '~/assets/scss/main.scss'
   ],
   vite: {
+    server: {
+      proxy: {
+        "/api": {
+          target: "http://localhost:5102"
+        },
+        "/hubs": {
+          target: "http://localhost:5102",
+          ws: true
+        }
+      }
+    },
     build: {
       rollupOptions: {
         output: {
@@ -39,5 +52,20 @@ export default defineNuxtConfig({
         },
       },
     },
+  },
+
+  tailwindcss: {
+    config: {
+      plugins: [
+        require('@tailwindcss/forms'),
+      ],
+      theme: {
+        extend: {
+          colors: {
+            'primary': colors.sky
+          }
+        }
+      }
+    }
   }
 })
