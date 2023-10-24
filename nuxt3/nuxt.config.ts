@@ -17,7 +17,7 @@ export default defineNuxtConfig({
         "/api": {
           target: "http://localhost:5102"
         },
-        "/hubs": {
+        "/signalr": {
           target: "http://localhost:5102",
           ws: true
         }

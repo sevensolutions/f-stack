@@ -1,4 +1,5 @@
 using Backend.Services;
+using Backend.SignalR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,6 +24,8 @@ builder.Services.AddProblemDetails( config =>
 	};
 } );
 
+builder.Services.AddSignalR();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -40,5 +43,8 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHub<ChatHub>( "/signalr/chat" );
+	//.RequireAuthorization();
 
 app.Run();

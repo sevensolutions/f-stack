@@ -1,16 +1,13 @@
 <template>
-    <aside id="sidebar-search" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 border-r border-gray-200 dark:border-gray-700" aria-label="Sidebar">
+    <aside id="drawer-navigation" class="fixed top-0 left-0 z-40 w-64 pt-16 h-screen transition-transform -translate-x-full md:translate-x-0 border-r border-gray-200 dark:border-gray-700" aria-label="Sidebar">
     <div class="overflow-y-auto py-4 px-3 h-full bg-white dark:bg-gray-800">
-        <a href="https://flowbite.com" class="flex items-center pl-2 mb-5">
-            <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-8" alt="Flowbite Logo" />
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-        </a>
-
-        <ul class="pt-5 space-y-2 dark:border-gray-700">
-            <app-navigation-button icon="fa-light fa-gauge" title="Overview" path="/"></app-navigation-button>
-            <app-navigation-button icon="fa-light fa-folder-open" title="Code Mirror" path="/code-mirror"></app-navigation-button>
-            <app-navigation-button icon="fa-light fa-folder-open" title="Quill Editor" path="/quill"></app-navigation-button>
-        </ul>
+      <ul class="pt-5 space-y-2 dark:border-gray-700">
+          <app-navigation-button icon="fa-light fa-gauge" title="Overview" path="/"></app-navigation-button>
+          <app-navigation-button icon="fa-light fa-folder-open" title="Code Mirror" path="/code-mirror"></app-navigation-button>
+          <app-navigation-button icon="fa-light fa-folder-open" title="Quill Editor" path="/quill"></app-navigation-button>
+          <app-navigation-button icon="fa-light fa-folder-open" title="Chat" path="/chat"></app-navigation-button>
+          <app-navigation-button icon="fa-light fa-folder-open" title="Form" path="/form"></app-navigation-button>
+      </ul>
     </div>
     <div class="absolute bottom-0 left-0 justify-center p-4 w-full bg-white dark:bg-gray-800 z-20">
         <p class="text-sm text-gray-500 dark:text-gray-400">Space left</p>
