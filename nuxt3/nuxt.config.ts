@@ -15,11 +15,12 @@ export default defineNuxtConfig({
     server: {
       proxy: {
         "/api": {
-          target: "http://localhost:5102"
+          target: "http://localhost:5137"
         },
         "/signalr": {
-          target: "http://localhost:5102",
-          ws: true
+          target: "http://localhost:5137",
+          ws: true,
+          secure: false
         }
       }
     },
@@ -59,6 +60,7 @@ export default defineNuxtConfig({
       plugins: [
         require('@tailwindcss/forms'),
       ],
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {

@@ -23,6 +23,22 @@
       </div>
 
       <div>
+        <h2 class="text-base font-semibold leading-7 text-gray-900">Theme</h2>
+        <p class="mt-1 text-sm leading-6 text-gray-500">Choose your preferred theme.</p>
+
+        <dl class="mt-6 space-y-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
+          <div class="flex items-center pt-6">
+            <dt class="flex-none pr-6 font-medium text-gray-900 sm:w-64">Theme</dt>
+            <dd class="flex flex-auto items-center justify-end">
+              <FSDropdown v-model="theme" :items="themes" displayProperty="displayName"></FSDropdown>
+            </dd>
+          </div>
+
+
+        </dl>
+      </div>
+
+      <div>
         <h2 class="text-base font-semibold leading-7 text-gray-900">Language and Dates</h2>
         <p class="mt-1 text-sm leading-6 text-gray-500">Choose what language and date format to use throughout your account.</p>
 
@@ -66,6 +82,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Dialog, DialogPanel, Switch, SwitchGroup, SwitchLabel } from '@headlessui/vue'
+import FSDropdown from '~/components/ui/FSDropdown.vue';
 import { Bars3Icon } from '@heroicons/vue/20/solid'
 import {
 BellIcon,
@@ -97,5 +114,36 @@ const secondaryNavigation = [
 ]
 
 const mobileMenuOpen = ref(false)
-const automaticTimezoneEnabled = ref(true)
+const automaticTimezoneEnabled = ref(true);
+
+const themes = [
+  {
+    name: "system",
+    displayName: "System Default"
+  },
+  {
+    name: "light",
+    displayName: "Light"
+  },
+  {
+    name: "dark",
+    displayName: "Dark"
+  }
+]
+
+const theme = ref(themes[0]);
+
+watch([theme], () => {
+  const html = document.getElementsByTagName("html")[0];
+  if (theme.value.name === "dark") {
+    html.classList.remove("light");
+    html.classList.add("dark");
+  } else if (theme.value.name === "light") {
+    html.classList.remove("dark");
+    html.classList.add("light");
+  } else {
+    html.classList.remove("light");
+    html.classList.remove("dark");
+  }
+});
 </script>

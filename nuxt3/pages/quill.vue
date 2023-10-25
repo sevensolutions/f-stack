@@ -10,6 +10,8 @@
 </template>
 
 <script setup lang="ts">
+  import hljs from 'highlight.js/lib/core';
+  import javascript from 'highlight.js/lib/languages/javascript';
   import { QuillEditor } from '@vueup/vue-quill'
   import '@vueup/vue-quill/dist/vue-quill.snow.css';
   import Delta from 'quill-delta';
@@ -17,7 +19,10 @@
   import ImageUploader from "quill-image-uploader";
   import 'quill-image-uploader/dist/quill.imageUploader.min.css';
   import { ImageDrop } from 'quill-image-drop-module';
+  import SyntaxModule from 'quill/modules/syntax';
 
+  // Then register the languages you need
+  hljs.registerLanguage('javascript', javascript);
 
   import { useApiClient } from '~/composables/useApiClient';
   import { useNotifications } from '~/composables/useNotifications';
@@ -75,6 +80,15 @@
   }
 
   const modules = [
+    // Doesn't work yet
+    // {
+    //   name: 'syntax',
+    //   module: SyntaxModule,
+    //   options: {
+    //     //hljs: hljs,
+    //     highlight: (text: string) => hljs.highlightAuto(text).value
+    //   }
+    // },
     {
       name: 'mention',
       module: QuillMention,
@@ -149,6 +163,10 @@
 /* .mention {
   background-color: aqua;
 } */
+
+.ql-editor{
+  min-height:500px;
+}
 
 .ql-mention-loading {
   @apply p-4 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;

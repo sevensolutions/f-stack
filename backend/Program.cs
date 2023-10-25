@@ -1,14 +1,17 @@
 using Backend.Services;
 using Backend.SignalR;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddSingleton<QuillService>();
+builder.Services.AddSingleton<NotificationService>();
 
 builder.Services.AddProblemDetails( config =>
 {
@@ -33,18 +36,38 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+app.UseWebSockets();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    System.Net.ServicePointManager.ServerCertificateValidationCallback += ( sender, cert, chain, sslPolicyErrors ) => true;
+
+	app.UseSwagger();
+	app.UseSwaggerUI();
+
+	app.UseCors( config =>
+	{
+		config.AllowAnyMethod();
+		//config.AllowAnyOrigin();
+		config.AllowAnyHeader();
+		config.SetIsOriginAllowed((host) => true);
+        config.AllowCredentials();
+		//config.WithExposedHeaders("Content-Disposition");
+	} );
 }
 
+app.UseForwardedHeaders();
+
+app.UseRouting();
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapHub<ChatHub>( "/signalr/chat" );
+app.MapHub<NotificationsHub>("/signalr/notifications");
+//app.MapHub<ChatHub>( "/signalr/chat" );
 	//.RequireAuthorization();
 
 app.Run();

@@ -1,5 +1,5 @@
 <template>
-    <aside id="drawer-navigation" class="fixed top-0 left-0 z-40 w-64 pt-16 h-screen transition-transform -translate-x-full md:translate-x-0 border-r border-gray-200 dark:border-gray-700" aria-label="Sidebar">
+  <aside id="drawer-navigation" class="fixed top-0 left-0 z-40 w-64 pt-16 transition-transform -translate-x-full md:translate-x-0 border-r border-gray-200 dark:border-gray-700" style="height: 100dvh;" aria-label="Sidebar">
     <div class="overflow-y-auto py-4 px-3 h-full bg-white dark:bg-gray-800">
       <ul class="pt-5 space-y-2 dark:border-gray-700">
           <app-navigation-button icon="fa-light fa-gauge" title="Overview" path="/"></app-navigation-button>
