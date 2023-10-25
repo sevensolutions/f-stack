@@ -7,7 +7,6 @@
       <font-awesome-icon icon="fa-solid fa-bell" class="w-6 h-6"></font-awesome-icon>
       <span v-if="newNotifications" class="absolute right-0 top-0 block h-2 w-2 rounded-full bg-red-400 ring-2 ring-white" />
     </span>
-
   </button>
 
   <!-- Dropdown menu -->

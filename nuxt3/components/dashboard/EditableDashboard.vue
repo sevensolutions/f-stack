@@ -1,10 +1,10 @@
 <template>
     <div class="p-8 bg-neutral-100 min-h-screen">
       <div class="py-2 px-2.5 flex justify-end space-x-2">
-        <Button v-if="isEditing" @click="addWidget">Add Widget</Button>
-        <Button @click="toggleEdit" :outline="isEditing">
+        <FSButton v-if="isEditing" @click="addWidget">Add Widget</FSButton>
+        <FSButton @click="toggleEdit" :variant="isEditing ? 'secondary' : 'primary'">
           {{ isEditing ? "Save Dashboard" : "Edit Dashboard" }}
-        </Button>
+        </FSButton>
       </div>
 
       <div class="grid-stack">
@@ -12,7 +12,7 @@
       </div>
     </div>
   </template>
-  
+
   <script setup>
   import { ref, nextTick, onMounted } from "vue";
   import WidgetContainer from "~/components/dashboard/WidgetContainer.vue";
@@ -22,7 +22,8 @@
   import "gridstack/dist/gridstack-extra.min.css";
   import DefaultWidget from "~/components/dashboard/DefaultWidget.vue";
   import SampleWidget from "~/components/dashboard/SampleWidget.vue";
-  
+  import FSButton from "../ui/FSButton.vue";
+
   const grid = ref(null);
   const widgets = ref([
     {
@@ -77,7 +78,7 @@
       },
     },
   ]);
-  
+
   function initGridStack() {
     grid.value = GridStack.init({
       column: 4,
@@ -88,7 +89,7 @@
     });
     makeWidgets(widgets.value);
   }
-  
+
   function makeWidgets(widgets) {
     widgets.forEach((widget) => {
       makeWidget(widget);
@@ -98,7 +99,7 @@
     const elSelector = `#${item.id}`;
     return grid.value.makeWidget(elSelector);
   }
-  
+
   async function addWidget() {
     const widgetCount = widgets.value.length + 1;
     const widget = {
@@ -113,7 +114,7 @@
     await nextTick();
     makeWidget(widget);
   }
-  
+
   function deleteWidget(widget) {
     const index = widgets.value.findIndex((w) => w.id === widget.id);
     if (index === -1) {
@@ -124,9 +125,9 @@
     grid.value.compact();
     widgets.value.splice(index, 1);
   }
-  
+
   const isEditing = ref(false);
-  
+
   function toggleEdit() {
     if (isEditing.value) {
       grid.value.disable();
@@ -135,9 +136,8 @@
     }
     isEditing.value = !isEditing.value;
   }
-  
+
   onMounted(() => {
     initGridStack();
   });
   </script>
-  

@@ -21,7 +21,7 @@
             </template>
             <template v-else>
               <div class="relative flex h-6 w-6 flex-none items-center justify-center bg-white">
-                <font-awesome-icon v-if="activityItem.type === 'paid'" icon="fa-solid fa-circle-check" class="h-6 w-6 text-indigo-600" aria-hidden="true" />
+                <font-awesome-icon v-if="activityItem.type === 'paid'" icon="fa-solid fa-circle-check" class="h-6 w-6 text-primary-600" aria-hidden="true" />
                 <div v-else class="h-1.5 w-1.5 rounded-full bg-gray-100 ring-1 ring-gray-300" />
               </div>
               <p class="flex-auto py-0.5 text-xs leading-5 text-gray-500">
@@ -35,7 +35,7 @@
 
 
       <form action="#" class="relative mt-5">
-        <div class="overflow-hidden rounded-lg border border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
+        <div class="overflow-hidden rounded-lg border border-gray-300 shadow-sm focus-within:border-primary-500 focus-within:ring-1 focus-within:ring-primary-500">
           <!--<textarea rows="2" name="description" id="description" class="block w-full resize-none border-0 py-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Write a description..." />-->
 
           <QuillTextBox placeholder="Write a comment..."></QuillTextBox>
@@ -137,7 +137,7 @@
               </button>
             </div>
             <div class="flex-shrink-0">
-              <button type="submit" class="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Send</button>
+              <button type="submit" class="inline-flex items-center rounded-md bg-primary-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">Send</button>
             </div>
           </div>
         </div>

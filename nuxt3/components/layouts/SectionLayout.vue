@@ -1,5 +1,5 @@
 <template>
-  <div :style="`flex-grow: ${props.width}`">
+  <div :style="`flex-grow: ${props.width}`" class="flex flex-col space-y-2">
     <slot></slot>
   </div>
 </template>

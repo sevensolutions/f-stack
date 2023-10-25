@@ -9,14 +9,14 @@
           <dt class="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Email Address</dt>
           <dd class="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
             <div class="text-gray-900">tom.cook@example.com</div>
-            <button type="button" class="font-semibold text-indigo-600 hover:text-indigo-500">Update</button>
+            <button type="button" class="font-semibold text-primary-600 hover:text-primary-500">Update</button>
           </dd>
         </div>
         <div class="pt-6 sm:flex">
           <dt class="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">Password</dt>
           <dd class="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
             <div class="text-gray-900">*****</div>
-            <button type="button" class="font-semibold text-indigo-600 hover:text-indigo-500">Change Password</button>
+            <button type="button" class="font-semibold text-primary-600 hover:text-primary-500">Change Password</button>
           </dd>
         </div>
 
