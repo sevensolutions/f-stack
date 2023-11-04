@@ -45,3 +45,6 @@ body {
     font-family: 'Consolas, Courier New', Courier, monospace !important;
     font-size: 10pt;
 }
+
+@import '@vue-flow/core/dist/style.css';
+@import '@vue-flow/core/dist/theme-default.css';
