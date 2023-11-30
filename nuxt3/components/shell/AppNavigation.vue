@@ -8,6 +8,7 @@
           <app-navigation-button icon="fa-light fa-folder-open" title="Chat" path="/chat"></app-navigation-button>
           <app-navigation-button icon="fa-light fa-folder-open" title="Form" path="/form"></app-navigation-button>
           <app-navigation-button icon="fa-light fa-folder-open" title="Vue-Flow" path="/flow"></app-navigation-button>
+          <app-navigation-button icon="fa-light fa-folder-open" title="AGGrid" path="/ag-grid"></app-navigation-button>
       </ul>
     </div>
     <div class="absolute bottom-0 left-0 justify-center p-4 w-full bg-white dark:bg-gray-800 z-20">
